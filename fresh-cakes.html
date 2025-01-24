@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Cakes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header-bg {
+            background: linear-gradient(340deg, rgb(0, 110, 114), rgb(0, 0, 0));
+            padding: 4vh 0;
+            margin-bottom: 0;
+            position: relative;
+        }
+        .logo{
+            width: 90px;
+            border-radius: 50px;
+        }
+        .navbar {
+            padding-top: 10px; /* Extra padding to give space to the navbar */
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #0056b3; /* Change text color on hover */
+        }
+
+        .image-slideshow {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Increased height for a larger slideshow */
+            overflow: hidden;
+            margin-top: 0; /* Remove any margin at the top */
+            padding-top: 0; /* Ensure no padding at the top */
+            margin-bottom: 0; /* Remove margin at the bottom */
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%; /* Makes sure images fill the container */
+            object-fit: cover;
+        }
+
+        .image-slideshow .active {
+            opacity: 1;
+        }
+
+        .slide p {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
+            padding: 0 20px; /* Padding to prevent text from touching the edges */
+            background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
+            border-radius: 5px; /* Rounded corners for better appearance */
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        .cake-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .cake-item {
+            width: 250px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .cake-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .cake-item h3 {
+            color: #333;
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+
+        .cake-item p {
+            color: #666;
+            font-size: 1.1em;
+            padding: 0 20px 20px;
+        }
+
+        .cake-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background-color: #fef7f0;
+            margin: 60px 20px;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-choose h3 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .why-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-item .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #e76f51;
+        }
+
+        .feature-item h4 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .why-features {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .feature-item {
+                width: 100%;
+            }
+
+            .slide {
+            position: absolute;
+            width: 100%;
+            height: 90%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 90%; /* Makes sure images fill the container */
+            object-fit: cover;
+        }
+
+        .slide p {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            width: 100%;
+            font-size: 23px;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
+            padding: 0 20px; /* Padding to prevent text from touching the edges */
+            background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
+            border-radius: 5px; /* Rounded corners for better appearance */
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bg text-center text-light">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <!-- <img src="logo (15).jpg" alt="" class="logo"> -->
+                <a class="navbar-brand" href="#">COCADOS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="delicious-nutritious.html">Delicious and Nutritious</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="fresh-cakes.html">Fresh Cakes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="healthy-cocktails.html">Healthy Cocktails</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="delivery-service.html">Delivery Service</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Image Slideshow -->
+    <section id="home" class="image-slideshow">
+        <div class="slide active">
+            <img src="fresh cakes/start.jpg" alt="Slide 1">
+            
+        </div>
+        <div class="slide">
+            <img src="logo (3).jpg" alt="Slide 2">
+
+        </div>
+        <div class="slide">
+            <img src="cakes (1).jpg" alt="Slide 2">
+
+        </div>
+        <div class="slide">
+            <img src="cakes (3).jpg" alt="Slide 3">
+            
+        </div>
+        <div class="slide">
+            <img src="cakes.jpg" alt="Slide 4">
+            
+        </div>
+
+    </section>
+
+    <h2>Fresh Cakes</h2>
+    <p>Our cakes are freshly baked and made with the finest ingredients for the perfect treat. Indulge in the sweetness and experience the true joy of our delightful cakes.</p>
+
+    <div class="cake-container">
+        <!-- Cake 1 -->
+        <div class="cake-item">
+            <img src="fresh cakes/chocolate fudge cake.jpg" alt="Chocolate Fudge Cake">
+            <h3>Chocolate Fudge Cake</h3>
+            <p>A rich and decadent chocolate cake with layers of fudge, topped with a smooth chocolate ganache. A dream for chocolate lovers.</p>
+        </div>
+        <!-- Cake 2 -->
+        <div class="cake-item">
+            <img src="fresh cakes/vanilla strawberry cake.jpg" alt="Vanilla Strawberry Cake">
+            <h3>Vanilla Strawberry Cake</h3>
+            <p>Light and fluffy vanilla cake paired with fresh strawberries and cream. A perfect combination for a sweet yet refreshing taste.</p>
+        </div>
+        <!-- Cake 3 -->
+        <div class="cake-item">
+            <img src="fresh cakes/carrot walnut cake.jpg" alt="Carrot Walnut Cake">
+            <h3>Carrot Walnut Cake</h3>
+            <p>A healthy and delicious option with grated carrots and crunchy walnuts. A wholesome cake that doesn’t compromise on flavor.</p>
+        </div>
+        <!-- Cake 4 -->
+        <div class="cake-item">
+            <img src="fresh cakes/Lemon blueberry cake.jpg" alt="Lemon Blueberry Cake">
+            <h3>Lemon Blueberry Cake</h3>
+            <p>Sweet and tangy lemon cake complemented by the burst of fresh blueberries. A zesty cake that is both refreshing and delightful.</p>
+        </div>
+        <!-- Additional Cakes -->
+        <div class="cake-item">
+            <img src="fresh cakes/red velvet cake.jpg" alt="Red Velvet Cake">
+            <h3>Red Velvet Cake</h3>
+            <p>A classic favorite with its vibrant red color and a rich cream cheese frosting. Perfect for celebrations and special occasions.</p>
+        </div>
+        <div class="cake-item">
+            <img src="fresh cakes/mango mousse cake.jpg" alt="Mango Mousse Cake">
+            <h3>Mango Mousse Cake</h3>
+            <p>A tropical delight with layers of mango mousse and sponge cake. Perfect for mango lovers!</p>
+        </div>
+        <div class="cake-item">
+            <img src="fresh cakes/Black forest cake.jpg" alt="Black Forest Cake">
+            <h3>Black Forest Cake</h3>
+            <p>Classic German chocolate cake layered with whipped cream and cherries for a timeless treat.</p>
+        </div>
+        <div class="cake-item">
+            <img src="fresh cakes/Tiramisu cake .jpg" alt="Tiramisu Cake">
+            <h3>Tiramisu Cake</h3>
+            <p>Italian-inspired dessert with layers of coffee-soaked sponge and mascarpone cream. A luxurious indulgence.</p>
+        </div>
+    </div>
+
+    <div class="why-choose" style="background-image: url(logo\ \(7\).jpg);">
+        <h3>Why Choose Our Fresh Cakes?</h3>
+        <div class="why-features">
+            <div class="feature-item">
+                <div class="icon">💖</div>
+                <h4>Made with Love</h4>
+                <p>Each cake is baked with care and attention to detail, ensuring that every bite is delicious and memorable.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🍫</div>
+                <h4>Finest Ingredients</h4>
+                <p>We use only the best ingredients, including premium cocoa, fresh fruits, and organic dairy, to bring you the finest cakes.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🎂</div>
+                <h4>Customizable</h4>
+                <p>We offer a variety of flavors and designs to suit every taste and occasion. Personalize your cake with messages and decorations!</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🔥</div>
+                <h4>Freshly Baked</h4>
+                <p>Our cakes are made to order, ensuring that they arrive at their freshest and tastiest every time.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript for Slideshow functionality
+    let slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function changeSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(changeSlide, 5000); // Change slide every 5 seconds
+</script>
+
+</html>

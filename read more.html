@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - COCADOS</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h2 {
+            color: #0056b3;
+        }
+        .mission-vision {
+            background-color: #e6f0ff;
+            border-radius: 8px;
+        }
+        .back-button {
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #003f8f !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <header class="text-center py-5 bg-light">
+        <h2 class="display-5">About Us</h2>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <!-- Image -->
+                <div class="text-center mb-4">
+                    <img src="CEO.jpg" alt="CEO of COCADOS" class="img-fluid rounded shadow-lg">
+                </div>
+
+                <!-- Content -->
+                <p class="text-justify">
+                    COCADOS was founded on September 26, 2017, with a vision to transform the way people access healthy, nutritious, and convenient food. The company was born out of a realization by its CEO and founder that, in many communities, finding wholesome and healthy food options was a significant challenge.
+                </p>
+                <p class="text-justify">
+                    Too often, people were left with limited choices dominated by unhealthy, highly processed, or junk foods. Dishes like fried plantain laden with excess oil or overly spiced stews, including Jollof rice, fried rice, and vegetable stews, were the norm, despite their potential adverse health effects.
+                </p>
+                <p class="text-justify">
+                    Furthermore, businesses and industries faced delays in their operations due to long-distance food sourcing, further complicating their daily processes. Driven by a commitment to provide better food choices, COCADOS set out to address these challenges by offering freshly prepared, balanced, and health-conscious meals.
+                </p>
+                <p class="text-justify">
+                    These meals catered to the specific needs of individuals, schools, businesses, and industries. The company sought to become a reliable and efficient food solution provider, bridging the gap between quality food preparation and timely delivery.
+                </p>
+                <p class="text-justify">
+                    In its early stages, the company focused on offering a wide variety of dishes that were both healthy and flavorful, emphasizing the use of fresh, high-quality ingredients while minimizing excess oil, salt, and unhealthy additives. By September 2018, COCADOS expanded its operations and employed its first two staff members.
+                </p>
+                <p class="text-justify">
+                    While the founder handled the cooking, the employees were responsible for delivering meals to customers, ensuring that food arrived fresh and on time. In 2019, the company experienced significant growth with the opening of a new branch at Market Circle, Takoradi.
+                </p>
+                <p class="text-justify">
+                    This strategic move helped COCADOS reach a larger audience, and by the end of the year, the company employed three additional people to support operations. That same year, COCADOS officially launched under its brand name, further establishing its presence in the food industry.
+                </p>
+                <p class="text-justify">
+                    COCADOS has come a long way since its inception, and its journey is only beginning. With a focus on health, convenience, and quality, the company remains dedicated to improving the food landscape in Ghana and beyond. By consistently delivering nutritious meals that meet the needs of busy individuals, businesses, and institutions, COCADOS is shaping the future of food delivery, one meal at a time.
+                </p>
+
+                <!-- Mission -->
+                <div class="mission-vision p-4 mb-4 text-center">
+                    <h3 class="text-primary">Mission</h3>
+                    <p>To inspire a lifestyle of healing and sound mind in men and women.</p>
+                </div>
+
+                <!-- Vision -->
+                <div class="mission-vision p-4 text-center">
+                    <h3 class="text-primary">Vision</h3>
+                    <p>To establish COCADOS as the prime destination for wholesome nourishing yet tasty meals beyond Ghana, through our dedicated safe and healthy ethos.</p>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center mt-4">
+                    <a href="previouspage.html" class="btn btn-primary back-button">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer>
+    <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript for Slideshow functionality
+    let slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function changeSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(changeSlide, 9000); // Change slide every 5 seconds
+</script>
+
+</html>
