@@ -6,9 +6,9 @@
     <title>Delicious and Nutritious Offering</title>
     <!-- Link to Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!-- Add Bootstrap Icons -->
     <style>
-
-            .header-bg {
+        .header-bg {
             background: linear-gradient(340deg, rgb(0, 110, 114), rgb(0, 0, 0));
             padding: 4vh 0;
             margin-bottom: 0;
@@ -19,7 +19,7 @@
             border-radius: 50px;
         }
         .navbar {
-            padding-top: 10px; /* Extra padding to give space to the navbar */
+            padding-top: 10px;
         }
 
         .navbar-dark .navbar-nav .nav-link {
@@ -28,17 +28,17 @@
         }
 
         .navbar-dark .navbar-nav .nav-link:hover {
-            color: #0056b3; /* Change text color on hover */
+            color: #0056b3;
         }
 
         .image-slideshow {
             position: relative;
             width: 100%;
-            height: 600px; /* Increased height for a larger slideshow */
+            height: 600px;
             overflow: hidden;
-            margin-top: 0; /* Remove any margin at the top */
-            padding-top: 0; /* Ensure no padding at the top */
-            margin-bottom: 0; /* Remove margin at the bottom */
+            margin-top: 0;
+            padding-top: 0;
+            margin-bottom: 0;
         }
 
         .slide {
@@ -51,7 +51,7 @@
 
         .slide img {
             width: 100%;
-            height: 100%; /* Makes sure images fill the container */
+            height: 100%;
             object-fit: cover;
         }
 
@@ -67,10 +67,10 @@
             font-size: 30px;
             color: white;
             text-align: center;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
-            padding: 0 20px; /* Padding to prevent text from touching the edges */
-            background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
-            border-radius: 5px; /* Rounded corners for better appearance */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            padding: 0 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
         }
 
         section {
@@ -87,17 +87,50 @@
             width: 100%;
         }
 
-        /* Custom Styling */
         .food-image {
             width: 200px;
             height: 200px;
             margin-right: 5px;
             vertical-align: middle;
         }
+
         .food-item {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+        }
+
+        /* Health Benefits Section Styles */
+        .health-benefits-section ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .health-benefits-section .list-group-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .health-benefits-section .list-group-item i {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-right: 15px;
+        }
+
+        .health-benefits-section .list-group-item strong {
+            font-weight: bold;
+        }
+
+        .health-benefits-section p {
+            font-size: 1.25rem;
+            color: #555;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -140,7 +173,7 @@
             
         </div>
         <div class="slide">
-            <img src="delicious and nutritious food/IMG-20250123-WA0086.jpg" alt="Slide 1">
+            <img src="IMG-20250123-WA0086.jpg" alt="Slide 1">
             
         </div>
         <div class="slide">
@@ -152,7 +185,7 @@
             
         </div>
         <div class="slide">
-            <img src=".jpg" alt="Slide 4">
+            <img src="Mediterranean-Cuisine..jpg" alt="Slide 4">
             
         </div>
 
@@ -171,7 +204,7 @@
 
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Greek salad.jpg" alt="Greek Salad">
+                    <img class="food-image" src="Greek salad.jpg" alt="Greek Salad">
                     <div>
                         <strong>Greek Salad</strong>: Packed with vegetables like cucumbers, tomatoes, and olives, and topped with feta cheese, this salad offers healthy fats, antioxidants, and fiber.
                     </div>
@@ -179,7 +212,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Quinoa salad.jpg" alt="Quinoa Salad">
+                    <img class="food-image" src="Quinoa salad.jpg" alt="Quinoa Salad">
                     <div>
                         <strong>Quinoa Salad</strong>: Combining the power of quinoa with mixed greens, nuts, and seeds, this salad is rich in protein and iron, making it an excellent choice for plant-based diets.
                     </div>
@@ -187,7 +220,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Cobb salad.jpg" alt="Cobb Salad">
+                    <img class="food-image" src="Cobb salad.jpg" alt="Cobb Salad">
                     <div>
                         <strong>Cobb Salad</strong>: A hearty salad filled with grilled chicken, avocado, boiled eggs, and blue cheese, offering a perfect balance of protein, healthy fats, and vitamins.
                     </div>
@@ -204,7 +237,7 @@
 
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Grilled Chicken wrap.jpg" alt="Grilled Chicken Wrap">
+                    <img class="food-image" src="Grilled Chicken wrap.jpg" alt="Grilled Chicken Wrap">
                     <div>
                         <strong>Grilled Chicken Wrap</strong>: Lean protein wrapped in whole grain, paired with fresh greens and a tangy dressing.
                     </div>
@@ -212,7 +245,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Vegetable wrap.jpg" alt="Vegetarian Wrap">
+                    <img class="food-image" src="Vegetable wrap.jpg" alt="Vegetarian Wrap">
                     <div>
                         <strong>Vegetarian Wrap</strong>: A flavorful combination of roasted veggies, hummus, and leafy greens, perfect for a healthy plant-based option.
                     </div>
@@ -220,7 +253,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Turkey and avocado wrap.jpg" alt="Turkey and Avocado Wrap">
+                    <img class="food-image" src="Turkey and avocado wrap.jpg" alt="Turkey and Avocado Wrap">
                     <div>
                         <strong>Turkey and Avocado Wrap</strong>: Filled with lean turkey slices, creamy avocado, and a touch of honey mustard dressing, this wrap offers heart-healthy fats and protein.
                     </div>
@@ -237,7 +270,7 @@
 
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Vegetable lentil stew.jpg" alt="Vegetable Lentil Stew">
+                    <img class="food-image" src="Vegetable lentil stew.jpg" alt="Vegetable Lentil Stew">
                     <div>
                         <strong>Vegetable Lentil Stew</strong>: A mix of lentils, carrots, potatoes, and spices, offering protein, fiber, and iron to fuel your day.
                     </div>
@@ -245,7 +278,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Spinach and tomatoes stew.jpg" alt="Spinach and Tomato Stew">
+                    <img class="food-image" src="Spinach and tomatoes stew.jpg" alt="Spinach and Tomato Stew">
                     <div>
                         <strong>Spinach and Tomato Stew</strong>: Loaded with greens and tomatoes, this stew is a rich source of vitamins A and C, along with antioxidants that support healthy vision and skin.
                     </div>
@@ -253,7 +286,7 @@
             </div>
             <div class="col-md-4 mb-4">
                 <div class="food-item">
-                    <img class="food-image" src="delicious and nutritious food/Sweet potato and chickpea stew.jpg" alt="Sweet Potato and Chickpea Stew">
+                    <img class="food-image" src="Sweet potato and chickpea stew.jpg" alt="Sweet Potato and Chickpea Stew">
                     <div>
                         <strong>Sweet Potato and Chickpea Stew</strong>: A hearty stew with sweet potatoes, chickpeas, and spices like cumin and coriander for a rich, satisfying meal packed with fiber.
                     </div>
@@ -262,24 +295,39 @@
         </div>
 
         <!-- Health Benefits Section -->
-        <div class="row mb-5">
-            <div class="col-12">
-                <h3 class="text-center mb-3">Why Choose Nutritious Foods?</h3>
-                <ul class="list-group">
-                    <li class="list-group-item"><strong>Boost Your Energy:</strong> Whole foods provide steady energy throughout the day, unlike the sugar spikes from junk food.</li>
-                    <li class="list-group-item"><strong>Better Digestion:</strong> Fiber-rich meals help improve gut health and digestion.</li>
-                    <li class="list-group-item"><strong>Fighting Illness:</strong> Whole foods help fight illness, while junk food weakens the immune system.</li>
-                    <li class="list-group-item"><strong>Healthier Skin and Hair:</strong> Nutrient-rich foods promote glowing skin and healthy hair, unlike the inflammation caused by processed foods.</li>
-                    <li class="list-group-item"><strong>Reduced Risk of Chronic Diseases:</strong> A healthy diet lowers the risk of heart disease, diabetes, and other chronic conditions, while junk food increases these risks.</li>
-                </ul>
-                <p class="text-center mt-4">Choosing nutritious food isn’t just about looking good—it’s about feeling great and living a longer, healthier life. Our meals are designed to help you lead a healthier, more balanced life. Join us on this journey towards better health with our delicious and nutritious offerings!</p>
-            </div>
-        </div>
+vz<div class="row mb-5 health-benefits-section">
+    <div class="col-12">
+        <h3 class="text-center mb-4" style="font-size: 2rem; color: #333; font-weight: 600;">Why Choose Nutritious Foods?</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-check-circle"></i>
+                <strong>Boost Your Energy:</strong> Whole foods provide steady energy throughout the day, unlike the sugar spikes from junk food.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-check-circle"></i>
+                <strong>Better Digestion:</strong> Fiber-rich meals help improve gut health and digestion.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-check-circle"></i>
+                <strong>Fighting Illness:</strong> Whole foods help fight illness, while junk food weakens the immune system.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-check-circle"></i>
+                <strong>Healthier Skin and Hair:</strong> Nutrient-rich foods promote glowing skin and healthy hair, unlike the inflammation caused by processed foods.
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                <i class="bi bi-check-circle"></i>
+                <strong>Reduced Risk of Chronic Diseases:</strong> A healthy diet lowers the risk of heart disease, diabetes, and other chronic conditions, while junk food increases these risks.
+            </li>
+        </ul>
+        <p class="text-center mt-4">Choosing nutritious food isn’t just about looking good—it’s about feeling great and living a longer, healthier life. Our meals are designed to help you lead a healthier, more balanced life. Join us on this journey towards better health with our delicious and nutritious offerings!</p>
+    </div>
+</div>
+
 
     </section>
-
-    <!-- Bootstrap 5 JavaScript Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+ <!-- Bootstrap 5 JavaScript Bundle -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 <footer>
