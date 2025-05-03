@@ -8,6 +8,8 @@
     <title>COCADOS</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
         /* Custom Styles */
         .header-bg {
@@ -16,33 +18,29 @@
             margin-bottom: 0;
             position: relative;
         }
-        .logo{
+        .logo {
             width: 90px;
             border-radius: 50px;
         }
         .navbar {
-            padding-top: 10px; /* Extra padding to give space to the navbar */
+            padding-top: 10px;
         }
-
         .navbar-dark .navbar-nav .nav-link {
             color: white;
             font-weight: bold;
         }
-
         .navbar-dark .navbar-nav .nav-link:hover {
-            color: #0056b3; /* Change text color on hover */
+            color: #0056b3;
         }
-
         .image-slideshow {
             position: relative;
             width: 100%;
-            height: 600px; /* Increased height for a larger slideshow */
+            height: 600px;
             overflow: hidden;
-            margin-top: 0; /* Remove any margin at the top */
-            padding-top: 0; /* Ensure no padding at the top */
-            margin-bottom: 0; /* Remove margin at the bottom */
+            margin-top: 0;
+            padding-top: 0;
+            margin-bottom: 0;
         }
-
         .slide {
             position: absolute;
             width: 100%;
@@ -50,17 +48,14 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-
         .slide img {
             width: 100%;
-            height: 100%; /* Makes sure images fill the container */
+            height: 100%;
             object-fit: cover;
         }
-
         .image-slideshow .active {
             opacity: 1;
         }
-
         .slide p {
             position: absolute;
             bottom: 20%;
@@ -69,64 +64,55 @@
             font-size: 30px;
             color: white;
             text-align: center;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
-            padding: 0 20px; /* Padding to prevent text from touching the edges */
-            background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
-            border-radius: 5px; /* Rounded corners for better appearance */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            padding: 0 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            width: 80%;
+            max-width: 800px;
         }
-
         section {
             padding: 60px 0;
         }
-
         footer {
             background-color: #222;
             color: #fff;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             position: relative;
-            bottom: 0;
             width: 100%;
         }
-
         html {
             scroll-behavior: smooth;
             min-height: 100%;
             display: flex;
             flex-direction: column;
         }
-
         body {
             flex-grow: 1;
         }
-
         /* About Us Section Styling */
         #about {
             background-color: #f9f9f9;
-            padding: 60px 0;
         }
-
-        #about h1 {
+        #about h1, #about h2 {
             font-size: 2.5rem;
             font-weight: 600;
+            color: #0056b3;
         }
-
         #about p {
             font-size: 1.1rem;
             color: #555;
         }
-
         #about .lead {
             font-size: 1.2rem;
             line-height: 1.6;
         }
-
         /* Image Styling */
         #about .img-fluid {
             max-width: 100%;
             height: auto;
         }
-
         /* Button Styling */
         .btn-outline-primary {
             font-weight: 500;
@@ -134,26 +120,23 @@
             border-radius: 50px;
             padding: 10px 25px;
         }
-
         .btn-outline-primary:hover {
             background-color: #0056b3;
             color: white;
         }
-
         /* Services Section Styling */
         #services {
             padding: 60px 0;
-            background-color: #f0f8ff;
+            background-color: #006e72;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
         }
-
         #services h2 {
             font-size: 2.5rem;
             font-weight: 600;
-            color: #0056b3;
+            color: white;
             text-align: center;
             margin-bottom: 40px;
         }
-
         .service-card {
             position: relative;
             height: 350px;
@@ -161,46 +144,41 @@
             overflow: hidden;
             margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .service-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-
         .service-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            background: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
         }
-
         .service-overlay h5 {
             color: #fff;
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 15px;
         }
-
         .service-overlay p {
             color: #fff;
             font-size: 1rem;
             margin-bottom: 20px;
         }
-
         .btn-light {
             font-size: 1.1rem;
             font-weight: 600;
@@ -210,18 +188,14 @@
             border-radius: 50px;
             transition: background-color 0.3s ease;
         }
-
         .btn-light:hover {
             background-color: #00408d;
             color: #fff;
         }
-
         /* Contact Section Styling */
         #contact {
             background-color: #f9f9f9;
-            padding: 60px 0;
         }
-
         #contact h2 {
             font-size: 2.5rem;
             font-weight: 600;
@@ -229,30 +203,28 @@
             text-align: center;
             margin-bottom: 40px;
         }
-
         .contact-info i {
             font-size: 1.5rem;
             color: #007bff;
+            margin-right: 15px;
         }
-
         .contact-info span {
             font-size: 1.2rem;
         }
-
         .contact-info li {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
         }
-
-        .contact-form input, .contact-form textarea {
+        .contact-form input,
+        .contact-form textarea {
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
             padding: 12px;
             font-size: 1rem;
+            border: 1px solid #ddd;
         }
-
         .contact-form button {
             border-radius: 8px;
             padding: 12px;
@@ -260,77 +232,52 @@
             color: white;
             font-size: 1.1rem;
             width: 100%;
+            border: none;
         }
-
         .contact-form button:hover {
             background-color: #0056b3;
         }
 
-
-@media (max-width: 768px) {
-.header-bg {
-    padding: 2vh 0; /* Reduce padding on smaller screens */
-}
-.navbar-toggler {
-    margin-right: 20px;
-}
-
-.why-choose-container {
-flex-direction: column;
-gap: 20px;
-}
-
-.image-slideshow {
-        position: relative;
-        width: 100%;
-        height: 600px; /* Increased height for a larger slideshow */
-        overflow: hidden;
-        margin-top: 0; /* Remove any margin at the top */
-        padding-top: 0; /* Ensure no padding at the top */
-        margin-bottom: 0; /* Remove margin at the bottom */
-    }
-
-    .slide {
-        position: absolute;
-        width: 100%;
-        height: 90%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .slide img {
-        width: 100%;
-        height: 90%; /* Makes sure images fill the container */
-        object-fit: cover;
-    }
-
-    .slide p {
-        position: absolute;
-        bottom: 20%;
-        left: 50%;
-        width: 94%;
-        font-size: 23px;
-        color: white;
-        text-align: center;
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
-        padding: 0 20px; /* Padding to prevent text from touching the edges */
-        background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
-        border-radius: 5px; /* Rounded corners for better appearance */
-    }
-
-    .services{
-        background-position: 60%;
-    } 
-}
-
-    
-</style>
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-bg {
+                padding: 2vh 0;
+            }
+            .navbar-toggler {
+                margin-right: 15px;
+            }
+            .image-slideshow {
+                height: 400px;
+            }
+            .slide p {
+                font-size: 20px;
+                width: 90%;
+                bottom: 15%;
+            }
+            #about h1, #about h2 {
+                font-size: 2rem;
+            }
+            .service-card {
+                height: 250px;
+            }
+            .service-overlay h5 {
+                font-size: 1.4rem;
+            }
+            .service-overlay p {
+                font-size: 0.9rem;
+            }
+            footer {
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header-bg text-center text-light">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <img src="logo (15).jpg" alt="" class="logo">
+                <img src="logo.jpg" alt="COCADOS Logo" class="logo">
                 <a class="navbar-brand" href="#">COCADOS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -358,68 +305,65 @@ gap: 20px;
     <!-- Image Slideshow -->
     <section id="home" class="image-slideshow">
         <div class="slide active">
-            <img src="DaNO (2).jpg" alt="Slide 1">
+            <img src="healthy-food.jpg" alt="Healthy Food">
             <p><b>Treat Yourself, The Healthy Way!</b>
                 <br><br>
                 At COCADOS, we believe healthy eating should never compromise on taste. Enjoy every moment with our freshly baked goods and healthy options.
             </p>
         </div>
         <div class="slide">
-            <img src="logo (9).jpg" alt="Slide 2">
+            <img src="delicious-food.jpg" alt="Delicious Food">
             <p><b>Savor the Taste of Health!</b>
                 <br><br>
                 Experience a unique fusion of healthy, delicious cakes, pastries, and cocktails—crafted to nourish your body and delight your senses.</p>
         </div>
         <div class="slide">
-            <img src="cakes.jpg" alt="Slide 3">
+            <img src="fresh-cakes.jpg" alt="Fresh Cakes">
             <p><b>Freshly Baked. Perfectly Crafted.</b>
                 <br><br>
                 Every bite of our cakes and pastries is a masterpiece made with the finest ingredients. Indulge in our guilt-free treats today!</p>
         </div>
         <div class="slide">
-            <img src="coak (1).jpg" alt="Slide 4">
+            <img src="healthy-cocktails.jpg" alt="Healthy Cocktails">
             <p><b>A Sip of Freshness!</b>
                 <br><br>
                 Our healthy cocktails are refreshing, rejuvenating, and packed with nutrients. Perfect for every occasion.
             </p>
         </div>
-
-    </section>
-
-    <section id="about" class="container my-5">
-        <h1 class="text-center text-primary mb-4">Welcome to COCADOS</h1>
-        <p class="text-center lead mb-5">
-            At COCADOS, we provide a variety of delicious, nutritious, and wholesome food options, including freshly baked cakes, innovative cocktails, and mouth-watering pastries. Whether you’re looking for a guilt-free dessert, a refreshing drink, or a healthy snack, we offer something for every taste and preference.
-        </p>
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="container my-5">
-        <div class="row align-items-center">
-            <h2 class="text-center my-4 text-secondar">Our Story</h2>
-        
-            <div class="col-md-6 mb-4" style="width: 500px;">
-                
-            </div>
-            <div class="col-md-6">
-                <p class="lead">
-                    COCADOS was founded on September 26, 2017, with a vision to transform the way people access healthy, nutritious, and convenient food. The company was born out of a realization by its CEO and founder that, in many communities, finding wholesome and healthy food options was a significant challenge. Since its inception, we have been committed to offering a diverse range of healthy options for our customers while maintaining delicious flavors.
-                </p>
-                <p class="lead">
-                    We strive to make healthy eating enjoyable and accessible to all, ensuring our products are always fresh, nutrient-dense, and full of flavor. Whether you're ordering a cake for a special occasion or grabbing a healthy snack, COCADOS is your go-to destination for delicious and nutritious food.
-                </p>
-                <a href="read more.html" class="btn btn-outline-primary mt-3">Read More</a>
+    <section id="about" class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-4">Welcome to COCADOS</h1>
+            <p class="text-center lead mb-5">
+                At COCADOS, we provide a variety of delicious, nutritious, and wholesome food options, including freshly baked cakes, innovative cocktails, and mouth-watering pastries. Whether you're looking for a guilt-free dessert, a refreshing drink, or a healthy snack, we offer something for every taste and preference.
+            </p>
+            
+            <h2 class="text-center my-4">Our Story</h2>
+            <div class="row align-items-center">
+          
+                <div class="col-md-6">
+                    <p class="lead">
+                        COCADOS was founded on September 26, 2017, with a vision to transform the way people access healthy, nutritious, and convenient food. The company was born out of a realization by its CEO and founder that, in many communities, finding wholesome and healthy food options was a significant challenge.
+                    </p>
+                    <p class="lead">
+                        We strive to make healthy eating enjoyable and accessible to all, ensuring our products are always fresh, nutrient-dense, and full of flavor. Whether you're ordering a cake for a special occasion or grabbing a healthy snack, COCADOS is your go-to destination for delicious and nutritious food.
+                    </p>
+                    <a href="read-more.html" class="btn btn-outline-primary mt-3">Read More</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services" style="background-image: url(logo\ \(11\).jpg); background-size: cover;">
-        <h2 style="color: white;">Our Services</h2>
+    <section id="services" class="py-5">
         <div class="container">
+            <h2>Our Services</h2>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="service-card" style="background-image: url('food\ slide\ \(1\).jpg'); background-size: cover;">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="healthy-meals.jpg" alt="Healthy Meals">
                         <div class="service-overlay">
                             <div>
                                 <h5>Delicious and Nutritious Offering</h5>
@@ -430,8 +374,9 @@ gap: 20px;
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="service-card" style="background-image: url('cakes\ \(3\).jpg');background-size: cover;">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="cakes.jpg" alt="Fresh Cakes">
                         <div class="service-overlay">
                             <div>
                                 <h5>Fresh Cakes</h5>
@@ -442,8 +387,9 @@ gap: 20px;
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="service-card" style="background-image: url('coak\ \(4\).jpg'); background-size: cover;">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="cocktails.jpg" alt="Healthy Cocktails">
                         <div class="service-overlay">
                             <div>
                                 <h5>Healthy Cocktails</h5>
@@ -453,11 +399,10 @@ gap: 20px;
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-card" style="background-image: url('deli\ \(3\).jpg'); background-size: cover;">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <img src="delivery-service.jpg" alt="Delivery Service">
                         <div class="service-overlay">
                             <div>
                                 <h5>Delivery Service</h5>
@@ -472,50 +417,54 @@ gap: 20px;
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container my-5">
-        <h2 class="text-center my-4">Contact Us</h2>
-        <p class="text-center">If you have any questions or would like to work with us, feel free to reach out. We’d love to hear from you!</p>
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <p class="text-center mb-5">If you have any questions or would like to work with us, feel free to reach out. We'd love to hear from you!</p>
 
-        <div class="row">
-            <div class="col-md-6">
-                <h4>Contact Information</h4>
-                <ul class="list-unstyled contact-info">
-                    <li class="d-flex align-items-center mb-3">
-                        <i class="bi bi-telephone-fill me-3"></i>
-                        <span class="lead">027 008 3650</span>
-                    </li>
-                    <li class="d-flex align-items-center mb-3">
-                        <i class="bi bi-envelope-fill me-3"></i>
-                        <span class="lead">cocadoscusine@gmail.com.com</span>
-                    </li>
-                    <li class="d-flex align-items-center mb-3">
-                        <i class="bi bi-geo-alt-fill me-3"></i>
-                        <span class="lead">12CK Mann Avenue, Anaji, Sekondi-Takoradi, Ghana</span>
-                    </li>
-                </ul>
-            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4 class="mb-4">Contact Information</h4>
+                    <ul class="list-unstyled contact-info">
+                        <li class="mb-3">
+                            <i class="bi bi-telephone-fill"></i>
+                            <span>027 008 3650</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>cocadoscusine@gmail.com</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>12CK Mann Avenue, Anaji, Sekondi-Takoradi, Ghana</span>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="col-md-6">
-                <h4>Send Us a Message</h4>
-                <form action="" method="post" class="contact-form">
-                    <div class="mb-3">
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
-                    </div>
-                    <div class="mb-3">
-                        <textarea name="message" id="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <div class="col-md-6">
+                    <h4 class="mb-4">Send Us a Message</h4>
+                    <form action="" method="post" class="contact-form">
+                        <div class="mb-3">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
+        <div class="container">
+            <p>&copy; 2025 COCADOS. All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS and Popper.js -->
@@ -533,7 +482,7 @@ gap: 20px;
             slides[currentSlide].classList.add('active');
         }
 
-        setInterval(changeSlide, 9000); // Change slide every 5 seconds
+        setInterval(changeSlide, 5000); // Change slide every 5 seconds
     </script>
 </body>
 </html>

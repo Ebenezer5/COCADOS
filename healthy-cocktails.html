@@ -4,300 +4,402 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy Cocktails</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-<style>
-    /* Basic Styling */
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
-
-    .header-bg {
-        background: linear-gradient(340deg, rgb(0, 110, 114), rgb(0, 0, 0));
-        padding: 4vh 0;
-        margin-bottom: 0;
-        position: relative;
-    }
-    .logo{
-        width: 90px;
-        border-radius: 50px;
-    }
-    .navbar {
-        padding-top: 10px; /* Extra padding to give space to the navbar */
-    }
-
-    .navbar-dark .navbar-nav .nav-link {
-        color: white;
-        font-weight: bold;
-    }
-
-    .navbar-dark .navbar-nav .nav-link:hover {
-        color: #0056b3; /* Change text color on hover */
-    }
-
-    .image-slideshow {
-        position: relative;
-        width: 100%;
-        height: 600px; /* Increased height for a larger slideshow */
-        overflow: hidden;
-        margin-top: 0; /* Remove any margin at the top */
-        padding-top: 0; /* Ensure no padding at the top */
-        margin-bottom: 0; /* Remove margin at the bottom */
-    }
-
-    .slide {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .slide img {
-        width: 100%;
-        height: 100%; /* Makes sure images fill the container */
-        object-fit: cover;
-    }
-
-    .image-slideshow .active {
-        opacity: 1;
-    }
-
-    .slide p {
-        position: absolute;
-        bottom: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 30px;
-        color: white;
-        text-align: center;
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
-        padding: 0 20px; /* Padding to prevent text from touching the edges */
-        background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
-        border-radius: 5px; /* Rounded corners for better appearance */
-    }
-
-    section {
-        padding: 60px 0;
-    }
-
-    footer {
-        background-color: #222;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
-
-    footer p{
-            color: #fff;
+        .header-bg {
+            background: linear-gradient(340deg, rgb(0, 110, 114), rgb(0, 0, 0));
+            padding: 1rem 0;
+            margin-bottom: 0;
+            position: relative;
         }
         
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        
+        .navbar-brand-container {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #00d4ff;
+        }
 
-    h2 {
-        text-align: center;
-        margin-top: 40px;
-        color: #333;
-    }
+        /* Slideshow */
+        .image-slideshow {
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            min-height: 500px;
+            max-height: 700px;
+            overflow: hidden;
+            margin: 0;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .image-slideshow .active {
+            opacity: 1;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            max-width: 90%;
+            width: max-content;
+        }
 
-    p {
-        text-align: center;
-        color: #666;
-        margin-bottom: 40px;
-        font-size: 1.1em;
-    }
+        /* Content Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            width: 100%;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #006e72;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-text {
+            text-align: center;
+            color: #555;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
 
-    .cocktail-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
+        /* Zigzag Cocktail Cards */
+        .cocktail-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .cocktail-item {
+            display: flex;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+        
+        .cocktail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .cocktail-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 1.5rem;
+        }
+        
+        /* Zigzag pattern */
+        .cocktail-item-left {
+            flex-direction: row-reverse;
+        }
+        
+        .cocktail-item-left img {
+            margin-right: 0;
+            margin-left: 1.5rem;
+        }
+        
+        .cocktail-item-right {
+            flex-direction: row;
+        }
+        
+        .cocktail-description {
+            flex: 1;
+        }
+        
+        .cocktail-description h3 {
+            color: #006e72;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .cocktail-description p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
 
-    .cocktail-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        background-color: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        transition: transform 0.3s;
-    }
+        /* Why Choose Section */
+        .why-choose {
+            text-align: center;
+            margin: 4rem auto;
+            background-color: #ffffff;
+            padding: 3rem 2rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            max-width: 1200px;
+        }
+        
+        .why-choose h3 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #006e72;
+            font-weight: 700;
+        }
+        
+        .why-choose-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        
+        .why-choose-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 280px;
+            text-align: center;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .why-choose-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .why-choose-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00796b;
+        }
+        
+        .why-choose-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .why-choose-item p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
 
-    .cocktail-item img {
-        max-width: 200px;
-        border-radius: 8px;
-        margin-right: 20px;
-    }
-
-    .cocktail-item:hover {
-        transform: scale(1.05);
-    }
-
-    .cocktail-item-left {
-        flex-direction: row-reverse;
-    }
-
-    .cocktail-item-right {
-        flex-direction: row;
-    }
-
-    .cocktail-description {
-        max-width: 500px;
-    }
-
-    .cocktail-description h3 {
-        color: #333;
-        margin-bottom: 10px;
-        font-size: 1.8em;
-    }
-
-    .cocktail-description p {
-        color: #666;
-        font-size: 1.1em;
-        line-height: 1.6;
-    }
-
-    /* Styling for Why Choose Section */
-    .why-choose {
-        text-align: center;
-        margin: 40px 20px;
-        background-color: #ffffff;
-        padding: 30px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-    }
-
-    .why-choose {
-    text-align: center;
-    margin: 50px 20px;
-    background-color: #ffffff;
-    padding: 40px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    }
-
-    .why-choose h3 {
-    font-size: 2.4em;
-    margin-bottom: 30px;
-    color: #333;
-    font-weight: bold;
-    }
-
-    .why-choose-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    }
-
-    .why-choose-item {
-    max-width: 300px;
-    text-align: center;
-    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .why-choose-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .why-choose-item .icon {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    color: #00796b;
-    }
-
-    .why-choose-item h4 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-    font-weight: bold;
-    }
-
-    .why-choose-item p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-    .why-choose-container {
-    flex-direction: column;
-    gap: 20px;
-    }
-
-
-    .slide {
-        position: absolute;
-        width: 100%;
-        height: 90%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-    }
-
-    .slide img {
-        width: 100%;
-        height: 90%; /* Makes sure images fill the container */
-        object-fit: cover;
-    }
-
-    .slide p {
-        position: absolute;
-        bottom: 20%;
-        left: 50%;
-        width: 100%;
-        font-size: 23px;
-        color: white;
-        text-align: center;
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
-        padding: 0 20px; /* Padding to prevent text from touching the edges */
-        background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
-        border-radius: 5px; /* Rounded corners for better appearance */
-    }
-
-}
-
-</style>
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .image-slideshow {
+                height: 55vh;
+                min-height: 450px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .navbar-brand-container {
+                position: static;
+                transform: none;
+                margin: 0 auto;
+                order: -1;
+            }
+            
+            .image-slideshow {
+                height: 50vh;
+                min-height: 400px;
+            }
+            
+            .slide-caption {
+                font-size: 2rem;
+                bottom: 20%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .image-slideshow {
+                height: 45vh;
+                min-height: 350px;
+            }
+            
+            .slide-caption {
+                font-size: 1.8rem;
+                bottom: 15%;
+                padding: 0.8rem 1.5rem;
+            }
+            
+            .cocktail-item img {
+                width: 120px;
+                height: 120px;
+                margin-right: 1rem;
+            }
+            
+            .cocktail-item-left img {
+                margin-left: 1rem;
+                margin-right: 0;
+            }
+            
+            .cocktail-description h3 {
+                font-size: 1.3rem;
+            }
+            
+            .why-choose {
+                padding: 2rem 1rem;
+                margin: 3rem 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .image-slideshow {
+                height: 40vh;
+                min-height: 300px;
+            }
+            
+            .slide-caption {
+                font-size: 1.4rem;
+                bottom: 10%;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+            }
+            
+            .cocktail-item {
+                padding: 1rem;
+            }
+            
+            .cocktail-item img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .cocktail-description h3 {
+                font-size: 1.2rem;
+            }
+            
+            .cocktail-description p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header-bg text-center text-light">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <!-- <img src="logo (15).jpg" alt="" class="logo"> -->
-                <a class="navbar-brand" href="#">COCADOS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="delicious-nutritious.html">Delicious and Nutritious</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="fresh-cakes.html">Fresh Cakes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="healthy-cocktails.html">Healthy Cocktails</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="delivery-service.html">Delivery Service</a>
-                        </li>
-                    </ul>
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="delicious-nutritious.html">Delicious and Nutritious</a>
+                            </li>
+                        </ul>
+                        
+                        <div class="navbar-brand-container">
+                            <img src="logo (12).jpg" alt="COCADOS Logo" class="logo">
+                            <a class="navbar-brand" href="#">COCADOS</a>
+                        </div>
+                        
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="fresh-cakes.html">Fresh Cakes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="healthy-cocktails.html">Healthy Cocktails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="delivery-service.html">Delivery Service</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -306,167 +408,175 @@
     <!-- Image Slideshow -->
     <section id="home" class="image-slideshow">
         <div class="slide active">
-            <img src="logo (10).jpg" alt="Slide 1">
-            
+            <img src="logo (10).jpg" alt="Healthy Cocktails">
+            <div class="slide-caption">Refreshing & Nutrient-Packed</div>
         </div>
         <div class="slide">
-            <img src="coak (1).jpg" alt="Slide 2">
-
+            <img src="coak (1).jpg" alt="Colorful Drinks">
+            <div class="slide-caption">Natural Ingredients</div>
         </div>
         <div class="slide">
-            <img src="coak (2).jpg" alt="Slide 3">
-            
+            <img src="coak (2).jpg" alt="Healthy Choices">
+            <div class="slide-caption">Boost Your Health</div>
         </div>
         <div class="slide">
-            <img src="coak (4).jpg" alt="Slide 4">
-            
+            <img src="coak (4).jpg" alt="Delicious Flavors">
+            <div class="slide-caption">Delicious Flavors</div>
         </div>
-
     </section>
 
-    <h2>Healthy Cocktails</h2>
-    <p>Enjoy our healthy, refreshing cocktails made with fresh ingredients and flavors. Make the switch from sugary sodas to these nutrient-packed drinks for a healthier lifestyle.</p>
+    <main class="container">
+        <h2>Healthy Cocktails</h2>
+        <p class="intro-text">Enjoy our healthy, refreshing cocktails made with fresh ingredients and natural flavors. Make the switch from sugary sodas to these nutrient-packed drinks for a healthier lifestyle.</p>
 
-    <div class="cocktail-container">
-        <!-- Cocktail 1 -->
-        <div class="cocktail-item cocktail-item-right">
-            <img src="/Citrus mint refresher.jpg" alt="Citrus Mint Refresher">
-            <div class="cocktail-description">
-                <h3>Citrus Mint Refresher</h3>
-                <p>This refreshing cocktail combines the bright flavors of citrus fruits with the coolness of fresh mint. Perfect for a hot day, it offers a zesty and revitalizing drink that is both hydrating and packed with vitamin C.</p>
+        <div class="cocktail-container">
+            <!-- Cocktail 1 (Right) -->
+            <div class="cocktail-item cocktail-item-right">
+                <img src="Citrus-mint-refresher.jpg" alt="Citrus Mint Refresher">
+                <div class="cocktail-description">
+                    <h3>Citrus Mint Refresher</h3>
+                    <p>This refreshing cocktail combines the bright flavors of citrus fruits with the coolness of fresh mint. Perfect for a hot day, it offers a zesty and revitalizing drink that is both hydrating and packed with vitamin C.</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 2 (Left) -->
+            <div class="cocktail-item cocktail-item-left">
+                <img src="Berry-smoothie-cocktail.jpg" alt="Berry Smoothie Cocktail">
+                <div class="cocktail-description">
+                    <h3>Berry Smoothie Cocktail</h3>
+                    <p>Made with a mix of berries, yogurt, and honey, this smoothie cocktail is a delicious way to enjoy antioxidants and probiotics. It's a great choice for those looking for a balanced, nutrient-packed drink.</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 3 (Right) -->
+            <div class="cocktail-item cocktail-item-right">
+                <img src="green-detox-cocktail.jpg" alt="Green Detox Cocktail">
+                <div class="cocktail-description">
+                    <h3>Green Detox Cocktail</h3>
+                    <p>A healthy blend of spinach, cucumber, and green apple, this detoxifying drink is a great way to cleanse your system while enjoying a refreshing, green smoothie. Packed with vitamins and minerals, it's a natural energy booster.</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 4 (Left) -->
+            <div class="cocktail-item cocktail-item-left">
+                <img src="tropical-mango-blast.jpg" alt="Tropical Mango Blast">
+                <div class="cocktail-description">
+                    <h3>Tropical Mango Blast</h3>
+                    <p>Enjoy the tropical taste of ripe mango blended with coconut water and a touch of lime. This smoothie cocktail is rich in vitamin A, potassium, and hydrating electrolytes, perfect for a sunny afternoon.</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 5 (Right) -->
+            <div class="cocktail-item cocktail-item-right">
+                <img src="spicy-pineapple-fizz.jpg" alt="Spicy Pineapple Fizz">
+                <div class="cocktail-description">
+                    <h3>Spicy Pineapple Fizz</h3>
+                    <p>Sweet pineapple juice meets a kick of jalapeño and a splash of sparkling water in this refreshing cocktail. It's a unique combination of sweet, spicy, and fizzy that will awaken your taste buds!</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 6 (Left) -->
+            <div class="cocktail-item cocktail-item-left">
+                <img src="avocado-coconut-smoothie.jpg" alt="Avocado Coconut Smoothie">
+                <div class="cocktail-description">
+                    <h3>Avocado Coconut Smoothie</h3>
+                    <p>Rich in healthy fats, this creamy smoothie combines avocado with coconut milk for a drink that's both nourishing and filling. It's a great choice for those who need a boost of energy and want to keep their skin glowing.</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 7 (Right) -->
+            <div class="cocktail-item cocktail-item-right">
+                <img src="watermelon-refresher.jpg" alt="Watermelon Refresher">
+                <div class="cocktail-description">
+                    <h3>Watermelon Refresher</h3>
+                    <p>Made with fresh watermelon, lime, and a hint of mint, this cocktail is incredibly hydrating and packed with antioxidants. Perfect for cooling down during the summer, it's a drink you can enjoy guilt-free!</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 8 (Left) -->
+            <div class="cocktail-item cocktail-item-left">
+                <img src="beetroot-Bliss.jpg" alt="Beetroot Bliss">
+                <div class="cocktail-description">
+                    <h3>Beetroot Bliss</h3>
+                    <p>This vibrant red drink combines beetroot with apple and lemon for a cocktail that's packed with nutrients and naturally detoxifying. It's excellent for improving circulation and boosting overall health.</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 9 (Right) -->
+            <div class="cocktail-item cocktail-item-right">
+                <img src="pomegranate-power.jpg" alt="Pomegranate Power">
+                <div class="cocktail-description">
+                    <h3>Pomegranate Power</h3>
+                    <p>Pomegranate is known for its high levels of antioxidants, and when combined with fresh citrus, it creates a deliciously tart cocktail that's fantastic for your immune system and heart health.</p>
+                </div>
+            </div>
+
+            <!-- Cocktail 10 (Left) -->
+            <div class="cocktail-item cocktail-item-left">
+                <img src="matcha-green-tea-smoothie.jpg" alt="Matcha Green Tea Smoothie">
+                <div class="cocktail-description">
+                    <h3>Matcha Green Tea Smoothie</h3>
+                    <p>With the health benefits of green tea and the creamy texture of a smoothie, this drink is packed with antioxidants, helps boost metabolism, and provides sustained energy without the jitters of coffee.</p>
+                </div>
             </div>
         </div>
 
-        <!-- Cocktail 2 -->
-        <div class="cocktail-item cocktail-item-left">
-            <img src="Berry smoothie cocktail.jpg" alt="Berry Smoothie Cocktail">
-            <div class="cocktail-description">
-                <h3>Berry Smoothie Cocktail</h3>
-                <p>Made with a mix of berries, yogurt, and honey, this smoothie cocktail is a delicious way to enjoy antioxidants and probiotics. It's a great choice for those looking for a balanced, nutrient-packed drink.</p>
+        <div class="why-choose">
+            <h3>Why Choose Healthy Cocktails Over Sugary Drinks?</h3>
+            <div class="why-choose-container">
+                <div class="why-choose-item">
+                    <div class="icon">🍎</div>
+                    <h4>Nutrient-Rich</h4>
+                    <p>Healthy cocktails provide essential vitamins, minerals, and antioxidants, unlike sugary sodas that are packed with empty calories.</p>
+                </div>
+                <div class="why-choose-item">
+                    <div class="icon">💧</div>
+                    <h4>Boost Energy and Hydration</h4>
+                    <p>Many of these drinks hydrate and naturally boost energy without the crashes from sugary beverages.</p>
+                </div>
+                <div class="why-choose-item">
+                    <div class="icon">✨</div>
+                    <h4>Supports Skin Health</h4>
+                    <p>Ingredients like coconut, avocado, and berries help keep your skin glowing and healthy.</p>
+                </div>
+                <div class="why-choose-item">
+                    <div class="icon">⚖️</div>
+                    <h4>Weight Management</h4>
+                    <p>These drinks are lower in calories compared to sodas, helping you manage your weight in a healthy way.</p>
+                </div>
             </div>
         </div>
-
-        <!-- Cocktail 3 -->
-        <div class="cocktail-item cocktail-item-right">
-            <img src="green detox cocktail.jpg" alt="Green Detox Cocktail">
-            <div class="cocktail-description">
-                <h3>Green Detox Cocktail</h3>
-                <p>A healthy blend of spinach, cucumber, and green apple, this detoxifying drink is a great way to cleanse your system while enjoying a refreshing, green smoothie. Packed with vitamins and minerals, it's a natural energy booster.</p>
-            </div>
-        </div>
-
-        <!-- Cocktail 4 -->
-        <div class="cocktail-item cocktail-item-left">
-            <img src="tropical mango blast.jpg" alt="Tropical Mango Blast">
-            <div class="cocktail-description">
-                <h3>Tropical Mango Blast</h3>
-                <p>Enjoy the tropical taste of ripe mango blended with coconut water and a touch of lime. This smoothie cocktail is rich in vitamin A, potassium, and hydrating electrolytes, perfect for a sunny afternoon.</p>
-            </div>
-        </div>
-
-        <!-- Cocktail 5 -->
-        <div class="cocktail-item cocktail-item-right">
-            <img src="/spicy pineapple fizz.jpg" alt="Spicy Pineapple Fizz">
-            <div class="cocktail-description">
-                <h3>Spicy Pineapple Fizz</h3>
-                <p>Sweet pineapple juice meets a kick of jalapeño and a splash of sparkling water in this refreshing cocktail. It's a unique combination of sweet, spicy, and fizzy that will awaken your taste buds!</p>
-            </div>
-        </div>
-
-        <!-- Cocktail 6 -->
-        <div class="cocktail-item cocktail-item-left">
-            <img src="/avocado coconut smoothie.jpg" alt="Avocado Coconut Smoothie">
-            <div class="cocktail-description">
-                <h3>Avocado Coconut Smoothie</h3>
-                <p>Rich in healthy fats, this creamy smoothie combines avocado with coconut milk for a drink that's both nourishing and filling. It's a great choice for those who need a boost of energy and want to keep their skin glowing.</p>
-            </div>
-        </div>
-
-        <!-- Cocktail 7 -->
-        <div class="cocktail-item cocktail-item-right">
-            <img src="watermelon refresher.jpg" alt="Watermelon Refresher">
-            <div class="cocktail-description">
-                <h3>Watermelon Refresher</h3>
-                <p>Made with fresh watermelon, lime, and a hint of mint, this cocktail is incredibly hydrating and packed with antioxidants. Perfect for cooling down during the summer, it's a drink you can enjoy guilt-free!</p>
-            </div>
-        </div>
-
-        <!-- Cocktail 8 -->
-        <div class="cocktail-item cocktail-item-left">
-            <img src="beetroot Bliss.jpg" alt="Beetroot Bliss">
-            <div class="cocktail-description">
-                <h3>Beetroot Bliss</h3>
-                <p>This vibrant red drink combines beetroot with apple and lemon for a cocktail that's packed with nutrients and naturally detoxifying. It’s excellent for improving circulation and boosting overall health.</p>
-            </div>
-        </div>
-
-        <!-- Cocktail 9 -->
-        <div class="cocktail-item cocktail-item-right">
-            <img src="pomegranate power.jpg" alt="Pomegranate Power">
-            <div class="cocktail-description">
-                <h3>Pomegranate Power</h3>
-                <p>Pomegranate is known for its high levels of antioxidants, and when combined with fresh citrus, it creates a deliciously tart cocktail that's fantastic for your immune system and heart health.</p>
-            </div>
-        </div>
-
-        <!-- Cocktail 10 -->
-        <div class="cocktail-item cocktail-item-left">
-            <img src="/matcha green tea smoothie.jpg" alt="Matcha Green Tea Smoothie">
-            <div class="cocktail-description">
-                <h3>Matcha Green Tea Smoothie</h3>
-                <p>With the health benefits of green tea and the creamy texture of a smoothie, this drink is packed with antioxidants, helps boost metabolism, and provides sustained energy without the jitters of coffee.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="why-choose">
-        <h3>Why Choose Healthy Cocktails Over Sugary Drinks?</h3>
-        <div class="why-choose-container">
-            <div class="why-choose-item">
-                <div class="icon">🍎</div>
-                <h4>Nutrient-Rich</h4>
-                <p>Healthy cocktails provide essential vitamins, minerals, and antioxidants, unlike sugary sodas that are packed with empty calories.</p>
-            </div>
-            <div class="why-choose-item">
-                <div class="icon">💧</div>
-                <h4>Boost Energy and Hydration</h4>
-                <p>Many of these drinks hydrate and naturally boost energy without the crashes from sugary beverages.</p>
-            </div>
-            <div class="why-choose-item">
-                <div class="icon">✨</div>
-                <h4>Supports Skin Health</h4>
-                <p>Ingredients like coconut, avocado, and berries help keep your skin glowing and healthy.</p>
-            </div>
-            <div class="why-choose-item">
-                <div class="icon">⚖️</div>
-                <h4>Weight Management</h4>
-                <p>These drinks are lower in calories compared to sodas, helping you manage your weight in a healthy way.</p>
-            </div>
-        </div>
-    </div>
+    </main>
     
+    <footer>
+        <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
+    </footer>
+  <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            let slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            // Initialize first slide
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+            }
+            
+            function changeSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Only start slideshow if there are slides
+            if (slides.length > 1) {
+                setInterval(changeSlide, 5000); // Change slide every 5 seconds
+            }
+        });
+    </script>
 </body>
-<footer>
-    <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
-</footer>
-
-<!-- Bootstrap JS and Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-<script>
-    // JavaScript for Slideshow functionality
-    let slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-
-    function changeSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-
-    setInterval(changeSlide, 5000); // Change slide every 5 seconds
-</script>
-
-</html>
+</html
