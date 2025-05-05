@@ -5,49 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery Service</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        /* General Styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
-
+        /* Consistent Header/Slideshow/Footer (Matches Other Pages) */
         .header-bg {
             background: linear-gradient(340deg, rgb(0, 110, 114), rgb(0, 0, 0));
             padding: 4vh 0;
             margin-bottom: 0;
             position: relative;
         }
-        .logo{
-            width: 90px;
-            border-radius: 50px;
-        }
-        .navbar {
-            padding-top: 10px; /* Extra padding to give space to the navbar */
-        }
-
         .navbar-dark .navbar-nav .nav-link {
             color: white;
             font-weight: bold;
         }
-
         .navbar-dark .navbar-nav .nav-link:hover {
-            color: #0056b3; /* Change text color on hover */
-        }
+            color: #0056b3;
+        }  
 
+ .navbar-nav {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
         .image-slideshow {
             position: relative;
             width: 100%;
-            height: 600px; /* Increased height for a larger slideshow */
+            height: 600px;
             overflow: hidden;
-            margin-top: 0; /* Remove any margin at the top */
-            padding-top: 0; /* Ensure no padding at the top */
-            margin-bottom: 0; /* Remove margin at the bottom */
+            margin: 0;
         }
-
         .slide {
             position: absolute;
             width: 100%;
@@ -55,187 +42,214 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-
         .slide img {
             width: 100%;
-            height: 100%; /* Makes sure images fill the container */
+            height: 100%;
             object-fit: cover;
         }
-
         .image-slideshow .active {
             opacity: 1;
         }
-
         .slide p {
             position: absolute;
             bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 30px;
+            font-size: 2.5rem;
             color: white;
             text-align: center;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Improved shadow for better readability */
-            padding: 0 20px; /* Padding to prevent text from touching the edges */
-            background: rgba(0, 0, 0, 0.3); /* Add background color for text contrast */
-            border-radius: 5px; /* Rounded corners for better appearance */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            width: 100%;
         }
 
-        section {
-            padding: 60px 0;
+        /* Delivery-Specific Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
         }
-
         h2 {
             text-align: center;
-            margin-top: 30px;
-            color: #333;
-            font-size: 2.5em;
+            color: #006e72;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
         }
-
-        p {
+        .intro-text {
             text-align: center;
-            color: #666;
-            font-size: 1.2em;
-            margin: 10px 20px 40px;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            padding: 0 1rem;
         }
-
         .delivery-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            padding: 20px;
+            gap: 2rem;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
         .service-item {
-            background: #fff;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
-        .service-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        .service-item h3 {
-            font-size: 1.5em;
-            color: #333;
-            margin: 15px 0;
-        }
-
-        .service-item p {
-            color: #555;
-            padding: 0 20px 20px;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-
-        /* Why Choose Us Section */
-        .why-choose {
-            background-color: #c5c4c1;
-            margin: 40px 20px;
-            padding: 40px;
-            border-radius: 15px;
+        .service-icon {
+            background: #006e72;
+            color: white;
+            font-size: 2.5rem;
+            padding: 1.5rem 0;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
-        .why-choose h3 {
-            font-size: 2em;
+        .service-content {
+            padding: 1.5rem;
+        }
+        .service-content h3 {
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .service-content p {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+            margin: 0;
         }
 
+        /* Why Choose Section */
+        .why-choose {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            margin: 4rem auto;
+            padding: 3rem 1rem;
+            border-radius: 15px;
+            max-width: 1200px;
+        }
+        .why-choose h3 {
+            text-align: center;
+            color: #006e72;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
         .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 2rem;
         }
-
         .feature {
-            background: #fff;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 1.5rem;
             width: 250px;
-            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
-
         .feature:hover {
             transform: scale(1.05);
         }
-
-        .feature h4 {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 10px;
+        .feature-icon {
+            font-size: 2rem;
+            color: #006e72;
+            margin-bottom: 1rem;
         }
-
+        .feature h4 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
         .feature p {
             color: #555;
-            font-size: 1em;
-        }
-        
-        footer {
-            background-color: #222;
-            color: #3f3838;
+            line-height: 1.6;
             text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            margin: 0;
         }
 
-        footer p{
-            color: #fff;
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .image-slideshow {
+                height: 500px;
+            }
+            .slide p {
+                font-size: 2.2rem;
+            }
         }
         
-        /* Responsive Design */
         @media (max-width: 768px) {
+            .image-slideshow {
+                height: 400px;
+            }
+            .slide p {
+                font-size: 1.8rem;
+                bottom: 15%;
+                padding: 0.5rem 1rem;
+            }
             .service-item {
                 width: 100%;
                 max-width: 350px;
             }
-
-            .features {
-                flex-direction: row;
+            .why-choose {
+                margin: 3rem 1rem;
+                padding: 2rem 1rem;
             }
-
+        }
+        
+        @media (max-width: 576px) {
+            .image-slideshow {
+                height: 300px;
+            }
+            .slide p {
+                font-size: 1.5rem;
+                bottom: 10%;
+                width: 90%;
+            }
+            .why-choose h3 {
+                font-size: 1.8rem;
+            }
+            .feature {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header-bg text-center text-light">
+    <!-- Consistent Header -->
+    <header class="header-bg text-light">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <!-- <img src="logo (15).jpg" alt="" class="logo"> -->
-                <a class="navbar-brand" href="#">COCADOS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <img src="logo (15).jpg" alt="COCADOS Logo" class="logo">
+                <a class="navbar-brand" href="index.html">COCADOS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="delicious-nutritious.html">Delicious and Nutritious</a>
+                            <a class="nav-link" href="delicious-nutritious.html">Delicious & Nutritious</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="fresh-cakes.html">Fresh Cakes</a>
+                            <a class="nav-link active" href="fresh-cakes.html">Fresh Cakes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="healthy-cocktails.html">Healthy Cocktails</a>
@@ -249,98 +263,116 @@
         </div>
     </header>
 
-    <!-- Image Slideshow -->
-    <section id="home" class="image-slideshow">
+    <!-- Slideshow with Captions -->
+    <section class="image-slideshow">
         <div class="slide active">
-            <img src="logo (14).jpg" alt="Slide 1">
-            
+            <img src="logo (14).jpg" alt="Fast Delivery">
+            <p>Fast & Reliable Delivery</p>
         </div>
         <div class="slide">
-            <img src="Delivery Service.jpeg" alt="Slide 2">
-            
-         </div>
-        <div class="slide">
-            <img src="deli (2).jpg" alt="Slide 3">
-           
+            <img src="Delivery Service.jpeg" alt="Tracking">
+            <p>Real-Time Order Tracking</p>
         </div>
         <div class="slide">
-            <img src="deli (3).jpg" alt="Slide 4">
-            
+            <img src="deli (2).jpg" alt="Packaging">
+            <p>Eco-Friendly Packaging</p>
         </div>
         <div class="slide">
-            <img src="deli (1).jpg" alt="Slide 4">
-            
+            <img src="deli (3).jpg" alt="Service">
+            <p>24/7 Customer Support</p>
         </div>
-
     </section>
 
-    <h2>Delivery Service</h2>
-    <p>Get your favorite dishes delivered quickly and easily, right to your doorstep. Experience speed, quality, and convenience with our top-notch service.</p>
+    <!-- Main Content -->
+    <main class="container">
+        <h2>Delivery Service</h2>
+        <p class="intro-text">Get your favorite meals delivered quickly and safely. Our service ensures freshness, speed, and convenience—whether it's a healthy salad, fresh cake, or revitalizing cocktail.</p>
 
-    <!-- Delivery Services -->
-    <div class="delivery-container">
-        <div class="service-item">
-            <h3>Fast Delivery</h3>
-            <p>Receive your order in record time with our efficient delivery team.</p>
+        <div class="delivery-container">
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-lightning-charge"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Fast Delivery</h3>
+                    <p>Average delivery time under 30 minutes in urban areas.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Safe Packaging</h3>
+                    <p>Temperature-controlled containers for perfect freshness.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Live Tracking</h3>
+                    <p>Track your order in real-time via our app.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-icon">
+                    <i class="bi bi-currency-exchange"></i>
+                </div>
+                <div class="service-content">
+                    <h3>No Hidden Fees</h3>
+                    <p>Transparent pricing with free delivery on orders over $25.</p>
+                </div>
+            </div>
         </div>
-        <div class="service-item">
-            <h3>Safe Packaging</h3>
-            <p>Your food is carefully packed to ensure freshness and safety.</p>
-        </div>
-        <div class="service-item">
-            <h3>Multiple Cuisines</h3>
-            <p>Choose from a wide variety of cuisines to satisfy every craving.</p>
-        </div>
-        <div class="service-item">
-            <h3>Live Tracking</h3>
-            <p>Track your order in real time and know exactly when it will arrive.</p>
-        </div>
-    </div>
 
-    <!-- Why Choose Us -->
-    <div class="why-choose">
-        <h3>Why Choose Our Delivery Service?</h3>
-        <div class="features">
-            <div class="feature">
-                <h4>Reliability</h4>
-                <p>Trust us to deliver your order on time, every time.</p>
-            </div>
-            <div class="feature">
-                <h4>Quality</h4>
-                <p>We partner with top restaurants to bring you the best meals.</p>
-            </div>
-            <div class="feature">
-                <h4>Affordability</h4>
-                <p>Enjoy great food at affordable prices with no hidden charges.</p>
-            </div>
-            <div class="feature">
-                <h4>Customer Support</h4>
-                <p>Our support team is always ready to assist you with any queries.</p>
+        <div class="why-choose">
+            <h3>Why Choose Our Delivery Service?</h3>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h4>Speed</h4>
+                    <p>Our riders prioritize your order for lightning-fast delivery.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌱</div>
+                    <h4>Sustainability</h4>
+                    <p>We use biodegradable packaging to protect the environment.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h4>App Integration</h4>
+                    <p>Manage orders, track deliveries, and chat with support.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h4>Rated 4.9/5</h4>
+                    <p>Trusted by thousands of happy customers.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
+    <!-- Consistent Footer -->
+    <footer>
+        <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Slideshow Script -->
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function changeSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(changeSlide, 5000);
+    </script>
 </body>
-<footer>
-    <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
-</footer>
-
-<!-- Bootstrap JS and Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-<script>
-    // JavaScript for Slideshow functionality
-    let slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-
-    function changeSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-
-    setInterval(changeSlide, 5000); // Change slide every 5 seconds
-</script>
-
 </html>
