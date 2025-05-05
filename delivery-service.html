@@ -7,34 +7,57 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        /* Consistent Header/Slideshow/Footer (Matches Other Pages) */
+        /* Consistent Header/Slideshow/Footer */
+        :root {
+            --primary-color: #006e72;
+            --secondary-color: #0056b3;
+            --dark-color: #222;
+            --light-color: #f9f9f9;
+        }
+        
         .header-bg {
-            background: linear-gradient(340deg, rgb(0, 110, 114), rgb(0, 0, 0));
-            padding: 4vh 0;
+            background: linear-gradient(340deg, var(--primary-color), rgb(0, 0, 0));
+            padding: 2vh 0;
             margin-bottom: 0;
             position: relative;
         }
-        .navbar-dark .navbar-nav .nav-link {
-            color: white;
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
             font-weight: bold;
         }
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: #0056b3;
-        }  
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: var(--secondary-color);
+        }
 
- .navbar-nav {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Slideshow Styles */
         .image-slideshow {
             position: relative;
             width: 100%;
-            height: 600px;
+            height: 60vh;
+            min-height: 400px;
+            max-height: 700px;
             overflow: hidden;
             margin: 0;
         }
+        
         .slide {
             position: absolute;
             width: 100%;
@@ -42,15 +65,19 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
+        
         .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
+        
         .image-slideshow .active {
             opacity: 1;
         }
-        .slide p {
+        
+        .slide-caption {
             position: absolute;
             bottom: 20%;
             left: 50%;
@@ -60,28 +87,24 @@
             text-align: center;
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
             background: rgba(0, 0, 0, 0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 5px;
-        }
-        footer {
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            padding: 1.5rem;
-            width: 100%;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            max-width: 90%;
         }
 
-        /* Delivery-Specific Styling */
+        /* Main Content Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: var(--light-color);
         }
+        
         h2 {
             text-align: center;
-            color: #006e72;
+            color: var(--primary-color);
             margin: 2rem 0 1rem;
             font-weight: 700;
         }
+        
         .intro-text {
             text-align: center;
             color: #555;
@@ -89,7 +112,10 @@
             margin: 0 auto 3rem;
             font-size: 1.2rem;
             padding: 0 1rem;
+            line-height: 1.6;
         }
+        
+        /* Delivery Services */
         .delivery-container {
             display: flex;
             flex-wrap: wrap;
@@ -99,33 +125,39 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        
         .service-item {
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             width: 280px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
         }
+        
         .service-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
+        
         .service-icon {
-            background: #006e72;
+            background: var(--primary-color);
             color: white;
             font-size: 2.5rem;
             padding: 1.5rem 0;
             text-align: center;
         }
+        
         .service-content {
             padding: 1.5rem;
         }
+        
         .service-content h3 {
             color: #333;
             margin-bottom: 1rem;
             font-size: 1.4rem;
         }
+        
         .service-content p {
             color: #666;
             line-height: 1.6;
@@ -141,40 +173,47 @@
             border-radius: 15px;
             max-width: 1200px;
         }
+        
         .why-choose h3 {
             text-align: center;
-            color: #006e72;
+            color: var(--primary-color);
             font-size: 2.2rem;
             margin-bottom: 2rem;
             font-weight: 700;
         }
+        
         .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 2rem;
         }
+        
         .feature {
             background: white;
             border-radius: 10px;
             padding: 1.5rem;
             width: 250px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
+        
         .feature:hover {
             transform: scale(1.05);
         }
+        
         .feature-icon {
             font-size: 2rem;
-            color: #006e72;
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
+        
         .feature h4 {
             color: #333;
             font-size: 1.3rem;
             margin-bottom: 1rem;
         }
+        
         .feature p {
             color: #555;
             line-height: 1.6;
@@ -182,50 +221,103 @@
             margin: 0;
         }
 
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            width: 100%;
+        }
+
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .image-slideshow {
+                height: 55vh;
+                min-height: 380px;
+            }
+            
+            .slide-caption {
+                font-size: 2.2rem;
+            }
+        }
+        
         @media (max-width: 992px) {
             .image-slideshow {
-                height: 500px;
+                height: 50vh;
+                min-height: 350px;
             }
-            .slide p {
-                font-size: 2.2rem;
+            
+            .slide-caption {
+                font-size: 2rem;
+                bottom: 15%;
+            }
+            
+            .navbar-brand {
+                font-size: 1.4rem;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
             }
         }
         
         @media (max-width: 768px) {
             .image-slideshow {
-                height: 400px;
+                height: 45vh;
+                min-height: 300px;
             }
-            .slide p {
-                font-size: 1.8rem;
-                bottom: 15%;
-                padding: 0.5rem 1rem;
+            
+            .slide-caption {
+                font-size: 1.6rem;
+                padding: 0.6rem 1.2rem;
             }
+            
             .service-item {
                 width: 100%;
                 max-width: 350px;
             }
+            
             .why-choose {
                 margin: 3rem 1rem;
                 padding: 2rem 1rem;
+            }
+            
+            .feature {
+                width: 100%;
+                max-width: 300px;
             }
         }
         
         @media (max-width: 576px) {
             .image-slideshow {
-                height: 300px;
+                height: 40vh;
+                min-height: 250px;
             }
-            .slide p {
-                font-size: 1.5rem;
+            
+            .slide-caption {
+                font-size: 1.3rem;
                 bottom: 10%;
                 width: 90%;
+                padding: 0.5rem;
             }
-            .why-choose h3 {
+            
+            .logo {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            h2 {
                 font-size: 1.8rem;
             }
-            .feature {
-                width: 100%;
-                max-width: 300px;
+            
+            .why-choose h3 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -241,7 +333,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
@@ -249,13 +341,13 @@
                             <a class="nav-link" href="delicious-nutritious.html">Delicious & Nutritious</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="fresh-cakes.html">Fresh Cakes</a>
+                            <a class="nav-link" href="fresh-cakes.html">Fresh Cakes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="healthy-cocktails.html">Healthy Cocktails</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="delivery-service.html">Delivery Service</a>
+                            <a class="nav-link active" href="delivery-service.html">Delivery Service</a>
                         </li>
                     </ul>
                 </div>
@@ -267,19 +359,19 @@
     <section class="image-slideshow">
         <div class="slide active">
             <img src="logo (14).jpg" alt="Fast Delivery">
-            <p>Fast & Reliable Delivery</p>
+            <div class="slide-caption">Fast & Reliable Delivery</div>
         </div>
         <div class="slide">
             <img src="Delivery Service.jpeg" alt="Tracking">
-            <p>Real-Time Order Tracking</p>
+            <div class="slide-caption">Real-Time Order Tracking</div>
         </div>
         <div class="slide">
             <img src="deli (2).jpg" alt="Packaging">
-            <p>Eco-Friendly Packaging</p>
+            <div class="slide-caption">Eco-Friendly Packaging</div>
         </div>
         <div class="slide">
             <img src="deli (3).jpg" alt="Service">
-            <p>24/7 Customer Support</p>
+            <div class="slide-caption">24/7 Customer Support</div>
         </div>
     </section>
 
@@ -364,15 +456,26 @@
 
     <!-- Slideshow Script -->
     <script>
-        let slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-
-        function changeSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(changeSlide, 5000);
+        document.addEventListener('DOMContentLoaded', function() {
+            let slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            // Initialize first slide
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+            }
+            
+            function changeSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Only start slideshow if there are slides
+            if (slides.length > 1) {
+                setInterval(changeSlide, 5000); // Change slide every 5 seconds
+            }
+        });
     </script>
 </body>
 </html>
