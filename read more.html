@@ -3,124 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - COCADOS</title>
+    <meta name="description" content="Learn about COCADOS - our history, mission, and vision to provide healthy, nutritious food options since 2017.">
+    <title>About Us - COCADOS | Healthy Food Solutions</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        h2 {
-            color: #0056b3;
+        :root {
+            --primary-color: #006e72;
+            --secondary-color: #0056b3;
+            --dark-color: #222;
+            --light-color: #f9f9f9;
         }
+        
+        .header-bg {
+            background: linear-gradient(340deg, var(--primary-color), rgb(0, 0, 0));
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: var(--secondary-color);
+        }
+           .navbar-nav {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+        h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('food-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+        
         .mission-vision {
             background-color: #e6f0ff;
             border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
         }
-        .back-button {
-            transition: background-color 0.3s ease;
-        }
-        .back-button:hover {
-            background-color: #003f8f !important;
-        }
-        footer {
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+        
+        .timeline-item {
             position: relative;
-            bottom: 0;
-            width: 100%;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
         }
         
-        footer p{
-            color: #fff;
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
         }
         
+        .timeline-item:after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 15px;
+            width: 1px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .back-button {
+            transition: all 0.3s ease;
+            padding: 0.5rem 2rem;
+            font-weight: 600;
+        }
+        
+        .back-button:hover {
+            background-color: var(--dark-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .food-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 3rem 0;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Page Header -->
-    <header class="text-center py-5 bg-light">
-        <h2 class="display-5">About Us</h2>
+    <!-- Consistent Header -->
+    <header class="header-bg text-light">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <img src="logo (15).jpg" alt="COCADOS Logo" class="logo">
+                <a class="navbar-brand" href="index.html">COCADOS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="delicious-nutritious.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="read-more.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
+
+    <!-- Page Header -->
+    <div class="page-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Our Story</h1>
+            <p class="lead">Transforming food culture since 2017</p>
+        </div>
+    </div>
 
     <!-- Page Content -->
     <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <!-- Image -->
-                <div class="text-center mb-4">
-                
-                </div>
+            <div class="col-lg-10">
+                <!-- Introduction -->
+                <section class="mb-5">
+                    <h2 class="text-center mb-4">Who We Are</h2>
+                    <p class="lead text-center">
+                        COCADOS is revolutionizing access to healthy, nutritious, and convenient food options in Ghana and beyond.
+                    </p>
+                </section>
 
-                <!-- Content -->
-                <p class="text-justify">
-                    COCADOS was founded on September 26, 2017, with a vision to transform the way people access healthy, nutritious, and convenient food. The company was born out of a realization by its CEO and founder that, in many communities, finding wholesome and healthy food options was a significant challenge.
-                </p>
-                <p class="text-justify">
-                    Too often, people were left with limited choices dominated by unhealthy, highly processed, or junk foods. Dishes like fried plantain laden with excess oil or overly spiced stews, including Jollof rice, fried rice, and vegetable stews, were the norm, despite their potential adverse health effects.
-                </p>
-                <p class="text-justify">
-                    Furthermore, businesses and industries faced delays in their operations due to long-distance food sourcing, further complicating their daily processes. Driven by a commitment to provide better food choices, COCADOS set out to address these challenges by offering freshly prepared, balanced, and health-conscious meals.
-                </p>
-                <p class="text-justify">
-                    These meals catered to the specific needs of individuals, schools, businesses, and industries. The company sought to become a reliable and efficient food solution provider, bridging the gap between quality food preparation and timely delivery.
-                </p>
-                <p class="text-justify">
-                    In its early stages, the company focused on offering a wide variety of dishes that were both healthy and flavorful, emphasizing the use of fresh, high-quality ingredients while minimizing excess oil, salt, and unhealthy additives. By September 2018, COCADOS expanded its operations and employed its first two staff members.
-                </p>
-                <p class="text-justify">
-                    While the founder handled the cooking, the employees were responsible for delivering meals to customers, ensuring that food arrived fresh and on time. In 2019, the company experienced significant growth with the opening of a new branch at Market Circle, Takoradi.
-                </p>
-                <p class="text-justify">
-                    This strategic move helped COCADOS reach a larger audience, and by the end of the year, the company employed three additional people to support operations. That same year, COCADOS officially launched under its brand name, further establishing its presence in the food industry.
-                </p>
-                <p class="text-justify">
-                    COCADOS has come a long way since its inception, and its journey is only beginning. With a focus on health, convenience, and quality, the company remains dedicated to improving the food landscape in Ghana and beyond. By consistently delivering nutritious meals that meet the needs of busy individuals, businesses, and institutions, COCADOS is shaping the future of food delivery, one meal at a time.
-                </p>
+                <!-- Our History -->
+                <section class="mb-5">
+                    <h2 class="mb-4"><i class="bi bi-clock-history food-icon"></i> Our Journey</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>2017 - The Beginning</h3>
+                            <p>Founded on September 26, 2017 with a vision to transform food accessibility. Recognized the challenge of finding wholesome food options in many communities.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>2018 - First Expansion</h3>
+                            <p>Hired first two staff members to handle deliveries while the founder focused on cooking. Established our reputation for quality and reliability.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>2019 - Significant Growth</h3>
+                            <p>Opened new branch at Market Circle, Takoradi. Officially launched under the COCADOS brand name. Expanded team with three additional staff members.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Present Day</h3>
+                            <p>Continuing to innovate and expand our offerings while maintaining our commitment to health, convenience, and quality.</p>
+                        </div>
+                    </div>
+                </section>
 
-                <!-- Mission -->
-                <div class="mission-vision p-4 mb-4 text-center">
-                    <h3 class="text-primary">Mission</h3>
-                    <p>To inspire a lifestyle of healing and sound mind in men and women.</p>
-                </div>
+                <!-- The Problem We Solved -->
+                <section class="mb-5">
+                    <h2 class="mb-4"><i class="bi bi-exclamation-triangle food-icon"></i> The Challenge We Faced</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="card-title">Unhealthy Norms</h4>
+                                    <p class="card-text">Communities dominated by unhealthy options like fried plantains with excess oil, overly spiced stews, and processed foods with adverse health effects.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h4 class="card-title">Operational Delays</h4>
+                                    <p class="card-text">Businesses facing disruptions due to long-distance food sourcing and inconsistent quality.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-                <!-- Vision -->
-                <div class="mission-vision p-4 text-center">
-                    <h3 class="text-primary">Vision</h3>
-                    <p>To establish COCADOS as the prime destination for wholesome nourishing yet tasty meals beyond Ghana, through our dedicated safe and healthy ethos.</p>
-                </div>
+                <!-- Our Solution -->
+                <section class="mb-5">
+                    <h2 class="mb-4"><i class="bi bi-lightbulb food-icon"></i> Our Solution</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-3">
+                                <i class="bi bi-egg-fill fs-1 text-primary"></i>
+                                <h4 class="my-3">Fresh Ingredients</h4>
+                                <p>Using fresh, high-quality ingredients while minimizing excess oil, salt, and unhealthy additives.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-3">
+                                <i class="bi bi-basket-fill fs-1 text-primary"></i>
+                                <h4 class="my-3">Balanced Meals</h4>
+                                <p>Creating dishes that are both healthy and flavorful, catering to specific dietary needs.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-3">
+                                <i class="bi bi-truck fs-1 text-primary"></i>
+                                <h4 class="my-3">Reliable Delivery</h4>
+                                <p>Bridging the gap between quality food preparation and timely delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mission & Vision -->
+                <section class="mb-5">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="mission-vision h-100 p-4">
+                                <h3 class="text-center text-primary"><i class="bi bi-bullseye"></i> Our Mission</h3>
+                                <p class="text-center lead">To inspire a lifestyle of healing and sound mind in men and women through nutritious food choices.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="mission-vision h-100 p-4">
+                                <h3 class="text-center text-primary"><i class="bi bi-eye"></i> Our Vision</h3>
+                                <p class="text-center lead">To establish COCADOS as the prime destination for wholesome, nourishing yet tasty meals beyond Ghana.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="text-center my-5">
+                    <h2 class="mb-4">Join Our Healthy Food Revolution</h2><br>
+                    <a href="delicious-nutritious.html" class="btn btn-primary btn-lg me-3">Explore Our Menu</a><br>
+                    <a href="contact.html" class="btn btn-outline-primary btn-lg">Contact Us</a>
+                </section>
 
                 <!-- Back Button -->
                 <div class="text-center mt-4">
-                    <a href="index.html" class="btn btn-primary back-button">Back</a>
+                    <a href="index.html" class="btn btn-primary back-button">
+                        <i class="bi bi-arrow-left"></i> Back to Home
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2025 COCADOS. All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
+        </div>
+    </footer>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<footer>
-    <p>&copy; 2025 All Rights Reserved. Design by Ebenezer Kwame Egyir (More Things)</p>
-</footer>
-
-<!-- Bootstrap JS and Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-<script>
-    // JavaScript for Slideshow functionality
-    let slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-
-    function changeSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-
-    setInterval(changeSlide, 9000); // Change slide every 5 seconds
-</script>
-
 </html>
